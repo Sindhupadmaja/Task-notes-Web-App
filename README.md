@@ -1,10 +1,11 @@
 # Task & Notes Web Application
 
-A CRUD task-management API with JWT authentication, built on Node.js,
-Express, and MongoDB. First project in a four-part series tracing a
-backend engineer's progression from a single-service CRUD app (this one)
-through a modular multi-resource API, a concurrency-safe booking platform,
-and finally a multi-tenant SaaS platform with RBAC and observability.
+![CI](https://github.com/Sindhupadmaja/Task-notes-Web-App/actions/workflows/ci.yml/badge.svg)
+
+A secure CRUD task-management REST API with JWT authentication, built on
+Node.js, Express, and MongoDB. Users can create, filter, search, sort, and
+page through their own tasks, and every query is scoped to the logged-in
+user so no one can read or change another user's data.
 
 ## Why it's built this way
 
@@ -69,6 +70,7 @@ task-notes-web-app/
 │   ├── authService.test.js             # AuthService, mocked User model
 │   ├── taskService.test.js              # TaskService, mocked Task model, ownership enforcement
 │   └── httpApi.test.js                   # full HTTP request/response cycle, mocked models
+├── .env.example                            # environment variables to copy into .env
 ├── Dockerfile                              # multi-stage, non-root user, healthcheck
 ├── docker-compose.yml                       # api + real MongoDB for local dev
 └── .github/workflows/ci.yml                  # lint + test + Docker build on every push
@@ -77,8 +79,8 @@ task-notes-web-app/
 ## Setup
 
 ```bash
-git clone <this-repo>
-cd task-notes-web-app
+git clone https://github.com/Sindhupadmaja/Task-notes-Web-App.git
+cd Task-notes-Web-App
 npm install
 cp .env.example .env    # then edit JWT_SECRET to a real random string
 ```
